@@ -24,5 +24,14 @@
     <ClCompile Include="134-Gas Station.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="131-分割回文串.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="78-Subsets.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="90-Subsets II.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
