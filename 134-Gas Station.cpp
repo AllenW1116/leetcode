@@ -24,34 +24,34 @@ using namespace std;
 
 
 //
-//int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
-//	if (gas.size() == 1) {
-//		return gas[0] >= cost[0];
-//	}
-//	vector<int> expect;
-//	int n = gas.size();
-//	for (int i = 0; i < gas.size(); i++) {  // 求环形序列expect的最大子序列
-//		expect.push_back(gas[i] - cost[i]);
-//	}
-//	int rest = 0;
-//	int dp[200000];
-//	dp[0] = 0;
-//	for (int j = 1; j <=n*2-1; j++)
-//		dp[j] = max(dp[j-1] + expect[(j - 1 + n) % n], expect[(j - 1 + n) % n]);
-//
-//	int maxj = 1; int k = 0; int j = 0;
-//	for (j = 2; j <= n*2-1; j++)		//求dp中最大元素dp[
-//		if (dp[j] > dp[maxj]) maxj = j;
-//
-//	for (k = maxj; k >= 1; k--)		//k为出发点
-//		if (dp[k] <= 0) break;
-//
-//	for ( j = k+1; j < k + n; j++) { // 考虑出发点的下一个点的rest
-//		rest = rest + gas[(j - 1 + n) % n] - cost[(j-1+n)%n   ];
-//		if (rest + gas[j%n] < cost[j%n ]) { return -1; }
-//	}
-//	return k;
-//}
+int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+	if (gas.size() == 1) {
+		return gas[0] >= cost[0];
+	}
+	vector<int> expect;
+	int n = gas.size();
+	for (int i = 0; i < gas.size(); i++) {  // 求环形序列expect的最大子序列
+		expect.push_back(gas[i] - cost[i]);
+	}
+	int rest = 0;
+	int dp[200000];
+	dp[0] = 0;
+	for (int j = 1; j <=n*2-1; j++)
+		dp[j] = max(dp[j-1] + expect[(j - 1 + n) % n], expect[(j - 1 + n) % n]);
+
+	int maxj = 1; int k = 0; int j = 0;
+	for (j = 2; j <= n*2-1; j++)		//求dp中最大元素dp[
+		if (dp[j] > dp[maxj]) maxj = j;
+
+	for (k = maxj; k >= 1; k--)		//k为出发点
+		if (dp[k] <= 0) break;
+
+	for ( j = k+1; j < k + n; j++) { // 考虑出发点的下一个点的rest
+		rest = rest + gas[(j - 1 + n) % n] - cost[(j-1+n)%n   ];
+		if (rest + gas[j%n] < cost[j%n ]) { return -1; }
+	}
+	return k;
+}
 //int main() {
 //	vector<int> gas; 
 //	vector<int> cost;

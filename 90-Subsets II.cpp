@@ -73,20 +73,3 @@ public:
 };
 
 
-bool issameset(vector<int> set1, vector<int> set2) {
-    sort(set1.begin(), set1.end());
-    sort(set2.begin(), set2.end());
-    return set1 == set2;
-
-}
-int main() {
-    vector<int> set1;
-    set1.push_back(1); set1.push_back(2);
-
-    vector<int> set2;
-    set2.push_back(2); 
-
-    cout << issameset(set1, set2);
-
-    return 1;
-}
